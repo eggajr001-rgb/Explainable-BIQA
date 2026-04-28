@@ -1,6 +1,7 @@
-
 # Explainable Blind Image Quality Assessment with Closed-Loop Semantic Guidance and Distortion Diagnosis
 
+
+---
 
 ## 📖 Introduction
 
@@ -10,9 +11,8 @@ This repository provides the official inference code for the paper:
 
 The proposed framework aims to provide interpretable perception assessment for visual systems. It supports:
 
-- **Quality Prediction** Predicts perceptual quality scores using a dual-stream architecture that integrates semantic priors from a frozen CLIP model into a Vision Transformer (ViT) via zero-initialized FiLM.
-
-- **Distortion Diagnosis** Identifies dominant distortion types through a dedicated diagnosis branch, providing interpretable feedback for downstream decision-making.
+- **Quality Prediction:** Predicts perceptual quality scores using a dual-stream architecture that integrates semantic priors from a frozen CLIP model into a Vision Transformer (ViT) via zero-initialized FiLM.
+- **Distortion Diagnosis:** Identifies dominant distortion types through a dedicated diagnosis branch, providing interpretable feedback for downstream decision-making.
 
 ---
 
@@ -31,58 +31,66 @@ The model achieves strong consistency with human subjective judgments and reliab
 
 ## 📂 Project Structure
 
-```text
-├── predict_one_image.py   # Entry point for single-image inference
-├── config.py              # Configuration settings
-├── models/                # Network architecture (ViT + semantic modules)
-├── utils/                 # Preprocessing and utilities
-├── checkpoints/           # Pretrained weights (to be downloaded)
-└── requirements.txt       # Dependencies
-🛠️ Environment Setup
+    ├── predict_one_image.py   # Entry point for single-image inference
+    ├── config.py              # Configuration settings
+    ├── models/                # Network architecture (ViT + semantic modules)
+    ├── utils/                 # Preprocessing and utilities
+    ├── checkpoints/           # Pretrained weights (to be downloaded)
+    └── requirements.txt       # Dependencies
+
+
+---
+
+## 🛠️ Environment Setup
+
 Install dependencies:
 
-Bash
-pip install -r requirements.txt
-Core Dependencies:
+    pip install -r requirements.txt
 
-PyTorch >= 1.10.0
+**Core Dependencies:**
+- PyTorch >= 1.10.0
+- timm >= 0.4.12
+- open_clip_torch >= 2.0.0
+- einops
 
-timm >= 0.4.12
+---
 
-open_clip_torch >= 2.0.0
+## 📥 Pre-trained Model Weights
 
-einops
-
-📥 Pre-trained Model Weights
 Due to file size (~1GB), pretrained weights are hosted externally:
 
-Download: Baidu Netdisk
+* **Download Link:** https://pan.baidu.com/s/1eIrfHgxcisLDusNDqQ0iuw?pwd=1234
+* **Extraction Code:** `1234`
 
-Extraction Code: 1234
+After downloading, place the `.pth` file into: `./checkpoints/`
 
-After downloading, place the .pth file into:
-./checkpoints/
+---
 
-💻 Usage
+## 💻 Usage
+
 Run inference on a single image:
 
-Bash
-python predict_one_image.py --img_path ./path_to_your_image.jpg
-Output:
+    python predict_one_image.py --img_path ./path_to_your_image.jpg
 
-Predicted quality score
+**Output:**
+- Predicted quality score
+- Predicted distortion type
 
-Predicted distortion type
+---
 
-🔗 Citation
+## 🔗 Citation
+
 If you find this work useful, please cite:
 
+    @article{Song2026Explainable,
+      title={Explainable Blind Image Quality Assessment with Closed-Loop Semantic Guidance and Distortion Diagnosis},
+      author={Song, Chenye and Yuan, Fujiang and Zhang, Zhiwang},
+      journal={Scientific Reports},
+      year={2026}
+    }
 
-@article{Song2026Explainable,
-  title={Explainable Blind Image Quality Assessment with Closed-Loop Semantic Guidance and Distortion Diagnosis},
-  author={Song, Chenye and Yuan, Fujiang and Zhang,Zhiwang},
-  journal={Scientific Reports},
-  year={2026}
-}
-📄 License
+---
+
+## 📄 License
+
 This project is licensed under the MIT License.
